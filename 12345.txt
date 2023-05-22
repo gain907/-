@@ -1,0 +1,11 @@
+# 그래프를 예쁘게 그리기 위해 추가했습니다
+plt.style.use('ggplot')
+sns.set()
+sns.set_palette("Set2")
+
+def chart(dataset, feature):
+    survived = dataset[dataset['Survived'] == 1][feature].value_counts()
+    dead = dataset[dataset['Survived'] == 0][feature].value_counts()
+    df = pd.DataFrame([survived, dead])
+    df.index = ['Survived', 'Dead']
+    df.plot(kind='bar', stacked=True)
