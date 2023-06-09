@@ -9,3 +9,11 @@ def chart(dataset, feature):
     df = pd.DataFrame([survived, dead])
     df.index = ['Survived', 'Dead']
     df.plot(kind='bar', stacked=True)
+    
+    
+    
+    
+y데이터 = data['admit'].values
+x데이터 = [] 
+for i, rows in data.iterrows(): # pandas데이터에서 사용가능 iterrows 한 행씩 출력하기
+    x데이터.append([rows['gre'],rows['gpa'],rows['rank']])
