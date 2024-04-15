@@ -1,0 +1,18 @@
+# 데이터를 그래프로 표현
+# 데이터 시각화 도구
+
+def myScatter(label,color):
+  tmp = bmi_df[bmi_df['Index'] == label]
+  # 종류별로 쪼개진 데이터 산점도 그리기
+  plt.scatter(tmp['Weight'],tmp['Height'],c = color, label=label)
+
+# 그래프 사이즈 
+plt.figure(figsize=(6,5))
+# 답지:0,1,2,3,4,5
+myScatter(0,'red')    # 심각한 저체중
+myScatter(1,'orange') # 저체중
+myScatter(2,'blue')   # 정상체중
+myScatter(3,'yellow') # 과체중
+myScatter(4,'purple') # 비만
+myScatter(5,'magenta') # 고도비만
+plt.legend()
