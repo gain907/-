@@ -1,0 +1,11 @@
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10,5))
+# plt.plot(x축데이터,y축데이터)
+plt.plot(k_neighbor,train_score, label='Train_score', marker='o')
+plt.plot(k_neighbor,test_score, label='Test_score', marker='o')
+plt.legend()
+plt.grid() # 격자무늬 추가해 주세요
+plt.xticks(range(1,71,2)) # 간격 설정
+plt.xlabel('n_neighbors') # x축에 이름달기
+plt.ylabel('Score Accuracy') # y축에 이름달기
+plt.show() # 그래프를 출력해 주세요
