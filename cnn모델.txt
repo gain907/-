@@ -1,0 +1,19 @@
+model1 = Sequential()
+# Conv2D(커널수,필터사이즈,padding,activation,input_shape) 첫번째
+# Conv2D(커널수,필터사이즈,padding,activation) 두번째 부터
+# Padding = 'valid' or 'same'
+model1.add(Conv2D(32,(3,3), padding='same', activation='relu',input_shape=(28,28,1)))
+model1.add(MaxPooling2D(2,2))
+model1.add(Dropout(0.2))
+model1.add(Conv2D(64,(3,3), padding='same', activation='relu'))
+model1.add(MaxPooling2D(2,2))
+model1.add(Dropout(0.2))
+# MLP
+# 3차원 이미지 데이터를 1차원으로 바꿔줘야 한다
+# Flatten()
+model1.add(Flatten()) 
+# MLP 중간층
+model1.add(Dense(units=64, activation='relu'))
+model1.add(Dense(units=32, activation='relu'))
+# MLP 출력층
+model1.add(Dense(units=10,activation='softmax'))
